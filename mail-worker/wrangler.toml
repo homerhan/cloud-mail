@@ -2,46 +2,35 @@ name = "cloud-mail"
 main = "src/index.js"
 compatibility_date = "2025-06-04"
 keep_vars = true
-
 [observability]
 enabled = true
-
-#[[d1_databases]]
-#binding = "db"			#d1数据库绑定名默认不可修改
-#database_name = ""		#d1数据库名字
-#database_id = ""		#d1数据库id
-
-#[[kv_namespaces]]
-#binding = "kv"			#kv绑定名默认不可修改
-#id = ""					#kv数据库id
-
+[[d1_databases]]
+binding = "db"			#d1数据库绑定名默认不可修改
+database_name = "cloudmail"		#d1数据库名字
+database_id = "fe0a2b42-8355-4c91-b841-ff0911b63d94"		#d1数据库id
+[[kv_namespaces]]
+binding = "kv"			#kv绑定名默认不可修改
+id = "e8e8c4d73c19403ba5ad3b19a129ad76"					#kv数据库id
 #[[r2_buckets]]
 #binding = "r2"			#r2对象存储绑定名默认不可修改
 #bucket_name = ""		#r2对象存储桶的名字
-
 #[[send_email]]
 #name = "email"			#CF发件, 配置后优先使用
-
 [ai]
 binding = "ai"
-
 [assets]
 binding = "assets"		#静态资源绑定名默认不可修改
 directory = "./dist"	#前端vue项目打包的静态资源存放位置,默认dist
 not_found_handling = "single-page-application"
 run_worker_first = true
-
 [triggers]
 crons = ["0 16 * * *"]	#每天晚上12点执行每日任务,刷新分析缓存
-
-
 [vars]
 #ai_model = ""			#ai模型,不填默认使用@cf/meta/llama-3.1-8b-instruct
 #analysis_cache = false			#是否开启分析数据缓存
 #orm_log = false			#是否sql日志
-#domain = []				#邮件域名可可配置多个 示例: ["example1.com","example2.com"]
-#admin = ""				#管理员的邮箱	示例: admin@example.com
-#jwt_secret = ""			#jwt令牌的密钥,随便填一串字符串
-
+domain = ["898300.xyz","hklc.edu.kg"]				#邮件域名可可配置多个 示例: ["example1.com","example2.com"]
+admin = "admin@898300.xyz"				#管理员的邮箱	示例: admin@example.com
+jwt_secret = "515916"			#jwt令牌的密钥,随便填一串字符串
 [build]
 command = "pnpm --prefix ../mail-vue install && pnpm --prefix ../mail-vue run build"
