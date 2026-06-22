@@ -31,6 +31,6 @@ crons = ["0 16 * * *"]	#每天晚上12点执行每日任务,刷新分析缓存
 #orm_log = false			#是否sql日志
 domain = ["898300.xyz","089830.xyz","548983.xyz","hklc.edu.kg"]				#邮件域名可可配置多个 示例: ["example1.com","example2.com"]
 admin = "admin@898300.xyz"				#管理员的邮箱	示例: admin@example.com
-jwt_secret = "515916"			#jwt令牌的密钥,随便填一串字符串
+jwt_secret = "x7Kp9mZq2Lw5Rt8Yn3Vb6Hj4Fc1Ds0Ag"			#jwt令牌的密钥,随便填一串字符串
 [build]
 command = "pnpm --prefix ../mail-vue install && pnpm --prefix ../mail-vue run build"
